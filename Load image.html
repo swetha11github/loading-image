@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Load image</h1>
+    <p>Loading image using javascript</p>
+    <p id="demo1"></p>
+    <p>Loading image using flatmap() method.</p>
+    <p id="image-container"></p>
+</body>
+<script>
+    let img1 = ["fallls1.jpg", "falls2.jpg"];
+    let text = "";
+    img1.forEach((v)=> text+=`<img src="${v}" class="image">`)
+    document.getElementById("demo1").innerHTML = text
+</script>
+<script>
+    const image = ["fallls1.jpg", "falls2.jpg", "falss3.jpg", "falss4.jpg", "falss5.jpg"];
+    
+    const ImageElement = (url) => {
+        const img = new Image();
+        img.src = url;
+        return img;
+    };
+
+    const loadImages = () => {
+        const images = image.flatMap(ImageElement);
+    
+        const imageContainer = document.getElementById('image-container');
+        images.forEach((image) => {
+            imageContainer.appendChild(image);
+        });
+    };
+    loadImages();
+</script>
+</html>
